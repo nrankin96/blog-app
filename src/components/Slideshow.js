@@ -1,6 +1,7 @@
 
 import { useState } from 'react';
-import 'react-slideshow-image/dist/styles.css'
+import 'react-slideshow-image/dist/styles.css';
+
 
 function Slideshow({ slides }) {
     const [currentIndex, setCurrentIndex] = useState(0);
@@ -65,7 +66,7 @@ function Slideshow({ slides }) {
             <div className='font-bold' style={leftArrowStyles} onClick={goToPrevious}>&lt;</div>
             <div className='font-bold' style={rightArrowStyles} onClick={goToNext}>&gt;</div>
         </div>
-        <div style={{backgroundImage: `url(${slides[currentIndex].urlToImage})`}} className="w-full h-full bg-center bg-cover brightness-50	"></div>
+        <div  className="w-full h-full brightness-50	bg-cover bg-no-repeat  " style={{backgroundImage: `url(${slides[currentIndex].urlToImage})`}}></div>
         <div className='w-2/3  absolute inset-x-0 top-2 text-white text-center m-auto mt-24 lg:my-36 lg:mx-36' >
             <h1 className='font-semibold text-lg lg:text-3xl lg:mb-4'>{slides[currentIndex].title}</h1>
             <p className='mb-5 text-white'>{slides[currentIndex].description}</p> 
@@ -77,7 +78,7 @@ function Slideshow({ slides }) {
         </div>
        
         <div className='flex justify-center absolute inset-x-0 bottom-0 text-red-600 pb-2'>
-        {slides.map((slide, slideIndex) => (
+        {slides?.map((slide, slideIndex) => (
           <div
             style={dotStyle}
             key={slideIndex}

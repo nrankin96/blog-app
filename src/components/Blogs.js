@@ -1,11 +1,10 @@
 import { useEffect, useState } from "react";
 import Card from "./Card";
-import Gaming from "./Gaming";
 import 'react-slideshow-image/dist/styles.css'
 import Slideshow from "./Slideshow";
-import Footer from "./Footer";
 import BackToTopButton from "./BackToTopButton";
 import { BsArrowRightCircle, BsArrowLeftCircle } from 'react-icons/bs';
+import SmallCard from "./SmallCard";
 
 
 
@@ -16,7 +15,6 @@ function Blogs() {
     const [newsBlogs, setNewsBlogs] = useState([]);
     const noOfFeaturedArticles = 6;
     const [next, setNext] = useState(noOfFeaturedArticles);
-    const [menu, setMenu] = useState(false)
    
 
     
@@ -97,7 +95,7 @@ function Blogs() {
                 <div id='slider' className="flex overflow-x-scroll overflow-y-hidden scroll-smooth scrollbar-hide w-full h-full mx-2 space-x-4 ">
                     {gamingBlogs.map(({title, urlToImage, url}) => {
                     return (
-                        <Gaming 
+                        <SmallCard 
                         key={title}
                         title={title}
                         urlToImage={urlToImage}
@@ -133,7 +131,6 @@ function Blogs() {
                 <BackToTopButton />
 
             </div>
-            <Footer />
            
           
            
